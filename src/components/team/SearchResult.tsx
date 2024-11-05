@@ -1,7 +1,7 @@
 import { addUserToProject } from "@/api/TeamAPI"
 import { TeamMember } from "@/types/index"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
-import { useNavigate, useParams } from "react-router-dom"
+import { useLocation, useNavigate, useParams } from "react-router-dom"
 import { toast } from "react-toastify"
 
 type SearchResultProps = {
@@ -11,6 +11,7 @@ type SearchResultProps = {
 
 export default function SearchResult({user, reset} : SearchResultProps) {
     
+    const location = useLocation()
     const navigate = useNavigate()
     const params = useParams()
     const projectId = Number(params.projectId)

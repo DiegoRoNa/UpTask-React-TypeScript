@@ -4,7 +4,7 @@ import { Menu, MenuButton, MenuItem, MenuItems, Transition } from "@headlessui/r
 import { EllipsisVerticalIcon } from "@heroicons/react/20/solid"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { Fragment } from "react"
-import { useNavigate, useParams } from "react-router-dom"
+import { useLocation, useNavigate, useParams } from "react-router-dom"
 import { toast } from "react-toastify"
 import { useDraggable } from "@dnd-kit/core"
 
@@ -17,6 +17,8 @@ export default function TaskCard({task, canEdit} : TaskCardProps) {
 
     // libreria para arrastrar elementos
     const { attributes, listeners, setNodeRef, transform } = useDraggable({ id: task.id })
+
+    const location = useLocation()
 
     const navigate = useNavigate()
 

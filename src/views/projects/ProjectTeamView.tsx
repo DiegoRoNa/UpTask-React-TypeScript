@@ -3,11 +3,13 @@ import AddMemberModal from "@/components/team/AddMemberModal"
 import { Menu, MenuButton, MenuItem, MenuItems, Transition } from "@headlessui/react"
 import { EllipsisVerticalIcon } from "@heroicons/react/20/solid"
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
-import { Link, Navigate, useNavigate, useParams } from "react-router-dom"
+import { Link, Navigate, useLocation, useNavigate, useParams } from "react-router-dom"
 import { Fragment } from "react"
 import { toast } from "react-toastify"
 
 export default function ProjectTeamView() {
+    const location = useLocation()
+
     const navigate = useNavigate()
 
     const params = useParams()

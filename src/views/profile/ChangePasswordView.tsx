@@ -12,7 +12,7 @@ export default function ChangePasswordView() {
         password_confirmation: ''
     }
 
-    const {register, handleSubmit, watch, formState: { errors }} = useForm({ defaultValues: initialValues })
+    const {register, handleSubmit, watch, reset, formState: { errors }} = useForm({ defaultValues: initialValues })
 
     const { mutate } = useMutation({
         mutationFn: changePassword,
@@ -21,6 +21,7 @@ export default function ChangePasswordView() {
         }, 
         onSuccess: (data) => {
             toast.success(data)
+            reset()
         }
     })
 

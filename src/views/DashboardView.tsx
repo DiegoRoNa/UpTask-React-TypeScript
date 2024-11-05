@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 import { Fragment } from 'react'
 import { Menu, MenuButton, MenuItem, MenuItems, Transition } from '@headlessui/react'
 import { EllipsisVerticalIcon } from '@heroicons/react/20/solid'
@@ -12,6 +12,7 @@ export default function DashboardView() {
 
     const { data: user, isLoading: authLoading } = useAuth()
 
+    const location = useLocation()
     const navigate = useNavigate()
 
     // react query

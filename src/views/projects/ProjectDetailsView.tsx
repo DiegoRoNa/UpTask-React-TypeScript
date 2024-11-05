@@ -7,12 +7,13 @@ import { useAuth } from "@/hooks/useAuth"
 import { isManager } from "@/utils/policies"
 import { useQuery } from "@tanstack/react-query"
 import { useMemo } from "react"
-import { Link, Navigate, useNavigate, useParams } from "react-router-dom"
+import { Link, Navigate, useLocation, useNavigate, useParams } from "react-router-dom"
 
 export default function ProjectDetailsView() {
 
     const { data: user, isLoading: authLoading } = useAuth()
 
+    const location = useLocation()
     const navigate = useNavigate()
 
     // obtener el id del proyecto
